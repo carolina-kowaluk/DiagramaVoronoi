@@ -12,7 +12,7 @@ ifstream input;            // ofstream arq;
 
 Voronoi::Voronoi()
 {
-    
+
 }
 Poligono Voronoi::LeUmPoligono()
 {
@@ -45,17 +45,19 @@ void Voronoi::LePoligonos(const char *nome)
         exit(0);
     }
     string S;
-    
+
     input >> qtdDePoligonos;
     cout << "qtdDePoligonos:" << qtdDePoligonos << endl;
     Ponto A, B;
     Diagrama[0] = LeUmPoligono();
     Diagrama[0].obtemLimites(Min, Max);// obtem o envelope do poligono
+    envelopes[0] = Envelope(Min,Max);
     for (int i=1; i< qtdDePoligonos; i++)
     {
         Diagrama[i] = LeUmPoligono();
         Diagrama[i].obtemLimites(A, B); // obtem o envelope do poligono
-        
+        envelopes[i] = Envelope(A,B);
+
         Min = ObtemMinimo (A, Min);
         Max = ObtemMaximo (B, Max);
     }
@@ -81,3 +83,5 @@ void Voronoi::obtemLimites(Ponto &min, Ponto &max)
     min = this->Min;
     max = this->Max;
 }
+
+

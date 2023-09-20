@@ -14,11 +14,12 @@
 using namespace std;
 
 #include "Poligono.h"
-
+#include "Envelope.h"
 
 class Voronoi
 {
     Poligono Diagrama[1000];
+    Envelope envelopes[5000];
     unsigned int qtdDePoligonos;
     Ponto Min, Max;
 public:

@@ -63,6 +63,12 @@
 		</Compiler>
 		<Unit filename="DiagramaVoronoi.cpp" />
 		<Unit filename="DiagramaVoronoi.h" />
+		<Unit filename="Envelope.cpp">
+			<Option target="Debug-Windows" />
+		</Unit>
+		<Unit filename="Envelope.h">
+			<Option target="Debug-Windows" />
+		</Unit>
 		<Unit filename="ExibeVARIOSPoligonos.cpp">
 			<Option target="Debug-Windows" />
 		</Unit>

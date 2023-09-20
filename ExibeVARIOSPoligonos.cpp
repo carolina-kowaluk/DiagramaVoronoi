@@ -42,7 +42,7 @@ using namespace std;
 #include "ListaDeCoresRGB.h"
 
 #include "Temporizador.h"
-Ponto p(5,5);
+Ponto p(4.5,5);
 Temporizador T;
 double AccumDeltaT=0;
 
@@ -58,6 +58,9 @@ bool desenha = false;
 bool FoiClicado = false;
 
 float angulo=0.0;
+
+Poligono poligonoAtual;
+void poligonoInicial();
 
 // **********************************************************************
 //
@@ -133,6 +136,9 @@ void init()
     Min = Min - Largura * 0.1;
     Max = Max + Largura * 0.1;
 
+    poligonoInicial();
+    printf("\n poligono inicial \n");
+    poligonoAtual.imprime();
 }
 
 double nFrames=0;
@@ -221,19 +227,37 @@ void DesenhaPonto()
 }
 //***********************************************************************
 
+
 void InterseptaArestas(Poligono P)
 {
-    /*
+    // se tiver numero impar de arestas cruzadas, está dentro do poligono
+    int cruzas = 0;
     Ponto P1, P2;
+    Ponto Esq;
+    Ponto Dir (-1,0);
+    Esq = p + Dir * (1000);
     for (int i=0; i < P.getNVertices();i++)
     {
         P.getAresta(i, P1, P2);
         //if(PassaPelaFaixa(i,F))
-        if (HaInterseccao(PontoClicado,Esq, P1, P2))
-            P.desenhaAresta(i);
-    }*/
+        if (HaInterseccao(p,Esq, P1, P2))
+            cruzas++;
+    }
 
+    if (cruzas%2!=0)
+    {
+        poligonoAtual = P;
+    }
 }
+void poligonoInicial()
+{
+    for (int i=0; i < 19;i++)
+    {
+        InterseptaArestas(Voro.getPoligono(i));
+    }
+}
+
+
 // **********************************************************************
 //  void display( void )
 // **********************************************************************
@@ -264,6 +288,9 @@ void display( void )
         defineCor(CoresDosPoligonos[i]);
         P = Voro.getPoligono(i);
         P.pintaPoligono();
+
+        Ponto A, B;
+        P.getAresta(i,A,B);
     }
     glColor3f(0,0,0);
     for (int i=0; i<Voro.getNPoligonos(); i++)

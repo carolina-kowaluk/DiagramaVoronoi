@@ -262,3 +262,97 @@
 	"ListaDeCoresRGB.h"
 	"Temporizador.h"
 
+1695230668 source:c:\users\debyc\trabalhos\compgrafica\diagramavoronoi\diagramavoronoi.cpp
+	"DiagramaVoronoi.h"
+
+1695160720 c:\users\debyc\trabalhos\compgrafica\diagramavoronoi\diagramavoronoi.h
+	<iostream>
+	<fstream>
+	"Poligono.h"
+	"Envelope.h"
+
+1694207124 c:\users\debyc\trabalhos\compgrafica\diagramavoronoi\poligono.h
+	<iostream>
+	<windows.h>
+	<glut.h>
+	<GLUT/glut.h>
+	<glut.h>
+	"Ponto.h"
+	<vector>
+
+1694207124 c:\users\debyc\trabalhos\compgrafica\diagramavoronoi\gl\glut.h
+	"freeglut.h"
+
+1694207124 c:\users\debyc\trabalhos\compgrafica\diagramavoronoi\gl\freeglut.h
+	"freeglut_std.h"
+	"freeglut_ext.h"
+
+1694207124 c:\users\debyc\trabalhos\compgrafica\diagramavoronoi\gl\freeglut_std.h
+	<windows.h>
+	<GL/gl.h>
+	<GL/glu.h>
+
+1694207124 c:\users\debyc\trabalhos\compgrafica\diagramavoronoi\gl\freeglut_ext.h
+
+1694207124 c:\users\debyc\trabalhos\compgrafica\diagramavoronoi\ponto.h
+	<iostream>
+	<cmath>
+
+1694207124 source:c:\users\debyc\trabalhos\compgrafica\diagramavoronoi\listadecoresrgb.cpp
+	"ListaDeCoresRGB.h"
+
+1694207124 c:\users\debyc\trabalhos\compgrafica\diagramavoronoi\listadecoresrgb.h
+	<iostream>
+	<cmath>
+	<ctime>
+	<fstream>
+	<windows.h>
+	<glut.h>
+	<sys/time.h>
+	<GLUT/glut.h>
+	<glut.h>
+
+1695162125 source:c:\users\debyc\trabalhos\compgrafica\diagramavoronoi\poligono.cpp
+	<iostream>
+	<fstream>
+	"Poligono.h"
+
+1694207124 source:c:\users\debyc\trabalhos\compgrafica\diagramavoronoi\ponto.cpp
+	"Ponto.h"
+
+1694207124 source:c:\users\debyc\trabalhos\compgrafica\diagramavoronoi\temporizador.cpp
+	"Temporizador.h"
+
+1694207124 c:\users\debyc\trabalhos\compgrafica\diagramavoronoi\temporizador.h
+	<iostream>
+	<windows.h>
+	<sys/time.h>
+
+1695163184 source:c:\users\debyc\trabalhos\compgrafica\diagramavoronoi\exibevariospoligonos.cpp
+	<iostream>
+	<cmath>
+	<ctime>
+	<fstream>
+	<stdlib.h>
+	<windows.h>
+	<glut.h>
+	<sys/time.h>
+	<GLUT/glut.h>
+	<glut.h>
+	"Ponto.h"
+	"Poligono.h"
+	"DiagramaVoronoi.h"
+	"ListaDeCoresRGB.h"
+	"Temporizador.h"
+
+1695158677 source:c:\users\debyc\trabalhos\compgrafica\diagramavoronoi\envelope.cpp
+	"Envelope.h"
+
+1695158656 c:\users\debyc\trabalhos\compgrafica\diagramavoronoi\envelope.h
+	<iostream>
+	<windows.h>
+	<glut.h>
+	<GLUT/glut.h>
+	<glut.h>
+	"Ponto.h"
+
