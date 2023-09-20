@@ -37,7 +37,7 @@ public:
     Envelope();
     Envelope(Ponto P1, Ponto P2);
     bool temColisao(Envelope E);
-    bool temColisao(Ponto p1, Ponto p2);
+    bool temColisao(Envelope e, Ponto p1);
     void GeraEnvelope(Ponto P1, Ponto P2); //
     void AtualizaEnvelope();
     bool pontoEstaDentro(Ponto P);

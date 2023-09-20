@@ -82,12 +82,13 @@ void Envelope::Desenha()
     glEnd();
 }
 
-bool temColisao(Envelope e, Ponto p1, Ponto p2)
+bool Envelope::temColisao(Envelope e, Ponto p1)
 {
-    for (int i=0; i<4; i++)
+    if (p1.y <= e.Max.y && p1.y >= e.Min.y)
     {
-        //HaInterseccao()
+        return true;
     }
+    return false;
 }
 
 

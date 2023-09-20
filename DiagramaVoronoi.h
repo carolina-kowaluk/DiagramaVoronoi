@@ -15,6 +15,7 @@ using namespace std;
 
 #include "Poligono.h"
 #include "Envelope.h"
+#include "Ponto.h"
 
 class Voronoi
 {
@@ -29,6 +30,8 @@ public:
     Poligono getPoligono(int i);
     void obtemLimites(Ponto &min, Ponto &max);
     unsigned int getNPoligonos();
+    Poligono getPoligonoAtualInclConcavos(Ponto p1, Ponto pontoAtual);
+    bool getPoligonoAtualInclConvexos(Ponto pontoAtual);
 };
 
 #endif /* DiagramaVoronoi_h */

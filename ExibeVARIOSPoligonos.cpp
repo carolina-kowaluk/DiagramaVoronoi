@@ -138,7 +138,10 @@ void init()
 
     poligonoInicial();
     printf("\n poligono inicial \n");
+
     poligonoAtual.imprime();
+    Voro.getPoligonoAtualInclConvexos(p);
+    //poligonoAtual = Voro.getPoligonoAtualInclConcavos(Ponto(-3.3,p.y,0), p);
 }
 
 double nFrames=0;

@@ -7,6 +7,8 @@
 //
 
 #include "DiagramaVoronoi.h"
+#include "Envelope.h"
+#include "Poligono.h"
 
 ifstream input;            // ofstream arq;
 
@@ -85,3 +87,58 @@ void Voronoi::obtemLimites(Ponto &min, Ponto &max)
 }
 
 
+bool Voronoi::getPoligonoAtualInclConvexos(Ponto pontoAtual)
+{
+    for (int i=0; i < Diagrama[7].getNVertices(); i++)
+    {
+        Ponto v1 = Diagrama[7].getVertice(i);
+        Ponto v2 = Diagrama[7].getVertice((i + 1) % Diagrama[7].getNVertices());
+
+        Ponto vetorA = Ponto(v2.x-v1.x, v2.y-v1.y, 0);
+        Ponto vetorB = Ponto(pontoAtual.x-v1.x, pontoAtual.y-v1.y, 0);
+
+        Ponto prodV;
+        ProdVetorial(vetorA, vetorB, prodV);
+
+        prodV.imprime();
+        printf("\n");
+    }
+
+    return false;
+}
+
+
+Poligono Voronoi::getPoligonoAtualInclConcavos(Ponto p1, Ponto pontoAtual)
+{
+    //int cruzam[20];
+    int contador=0;
+
+    printf("Envelopes: \n");
+
+    for (int i=0; i<19; i++)
+    {
+        if (envelopes[i].temColisao(envelopes[i], p1))
+        {
+            //cruzam[contador] = i;
+            printf("%d \n", i);
+            int contaInterseccao = 0;
+            for (int a=0; a < Diagrama[i].getNVertices(); a++) // percorre arestas
+            {
+                Ponto v1;
+                Ponto v2;
+                Diagrama[i].getAresta(a, v1, v2);
+                if (HaInterseccao(p1, pontoAtual, v1, v2))
+                {
+                    printf("\nachou\n");
+                    contaInterseccao++;
+                }
+            }
+
+            if (contaInterseccao%2 != 0) // encontrou o poligono
+            {
+                Diagrama[i].imprime();
+                return Diagrama[i];
+            }
+        }
+    }
+}
