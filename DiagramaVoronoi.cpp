@@ -89,6 +89,8 @@ void Voronoi::obtemLimites(Ponto &min, Ponto &max)
 
 bool Voronoi::getPoligonoAtualInclConvexos(Ponto pontoAtual)
 {
+    // TODO: retornar poligono e colocar FOR externo percorrendo poligonos
+    int qtdNegativos =0;
     for (int i=0; i < Diagrama[7].getNVertices(); i++)
     {
         Ponto v1 = Diagrama[7].getVertice(i);
@@ -100,8 +102,16 @@ bool Voronoi::getPoligonoAtualInclConvexos(Ponto pontoAtual)
         Ponto prodV;
         ProdVetorial(vetorA, vetorB, prodV);
 
-        prodV.imprime();
         printf("\n");
+        prodV.imprime();
+
+        if (prodV.z < 0)
+            qtdNegativos++;
+    }
+
+    if (qtdNegativos == Diagrama[7].getNVertices() || qtdNegativos == 0)
+    {
+        return true;
     }
 
     return false;
