@@ -140,14 +140,21 @@ void init()
     printf("\n poligono inicial \n");
 
     poligonoAtual.imprime();
-    printf("\n%d",Voro.getPoligonoAtualInclConvexos(p));
+    //printf("\n%d",Voro.getPoligonoAtualInclConvexos(p));
     //poligonoAtual = Voro.getPoligonoAtualInclConcavos(Ponto(-3.3,p.y,0), p);
+    printf("Concavo: %d\n", Voro.getPoligonoAtualInclConcavos(Ponto(-3.3,p.y,0), p));
 }
 
 double nFrames=0;
 double TempoTotal=0;
 // **********************************************************************
-//
+
+void rodaAlgoritmos()
+{
+    printf("Concavo: %d\n", Voro.getPoligonoAtualInclConcavos(Ponto(-3.3,p.y,0), p));
+    printf("Convexo: %d\n", Voro.getPoligonoAtualInclConvexos(p));
+}
+
 // **********************************************************************
 void animate()
 {
@@ -247,10 +254,13 @@ void InterseptaArestas(Poligono P)
             cruzas++;
     }
 
+
     if (cruzas%2!=0)
     {
         poligonoAtual = P;
     }
+
+    resetContadorInt();
 }
 void poligonoInicial()
 {
@@ -317,6 +327,9 @@ void display( void )
         glColor3f(1,0,0); // R, G, B  [0..1]
 
     }
+
+    glColor3f(0,1,0); // R, G, B  [0..1]
+    DesenhaLinha(Ponto(-3.3,p.y,0), p);
 
     //Mapa.desenhaVertices();
     //glColor3f(1,0,0); // R, G, B  [0..1]

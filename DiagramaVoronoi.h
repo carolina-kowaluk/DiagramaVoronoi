@@ -30,8 +30,9 @@ public:
     Poligono getPoligono(int i);
     void obtemLimites(Ponto &min, Ponto &max);
     unsigned int getNPoligonos();
-    Poligono getPoligonoAtualInclConcavos(Ponto p1, Ponto pontoAtual);
-    bool getPoligonoAtualInclConvexos(Ponto pontoAtual);
+    int getPoligonoAtualInclConcavos(Ponto p1, Ponto pontoAtual);
+    int getPoligonoAtualInclConvexos(Ponto pontoAtual);
+    int getPoligonoAtualVizinhos(Ponto pontoAtual, Poligono poligonoAtual);
 };
 
 #endif /* DiagramaVoronoi_h */

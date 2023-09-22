@@ -9,6 +9,7 @@
 #include "DiagramaVoronoi.h"
 #include "Envelope.h"
 #include "Poligono.h"
+#include "Ponto.h"
 
 ifstream input;            // ofstream arq;
 
@@ -87,38 +88,49 @@ void Voronoi::obtemLimites(Ponto &min, Ponto &max)
 }
 
 
-bool Voronoi::getPoligonoAtualInclConvexos(Ponto pontoAtual)
+int Voronoi::getPoligonoAtualInclConvexos(Ponto pontoAtual)
 {
     // TODO: retornar poligono e colocar FOR externo percorrendo poligonos
-    int qtdNegativos =0;
-    for (int i=0; i < Diagrama[7].getNVertices(); i++)
+
+    for (int p=0; p < qtdDePoligonos; p++)
     {
-        Ponto v1 = Diagrama[7].getVertice(i);
-        Ponto v2 = Diagrama[7].getVertice((i + 1) % Diagrama[7].getNVertices());
+        int qtdNegativos =0;
 
-        Ponto vetorA = Ponto(v2.x-v1.x, v2.y-v1.y, 0);
-        Ponto vetorB = Ponto(pontoAtual.x-v1.x, pontoAtual.y-v1.y, 0);
+        for (int i=0; i < Diagrama[p].getNVertices(); i++)
+        {
+            Ponto v1 = Diagrama[p].getVertice(i);
+            Ponto v2 = Diagrama[p].getVertice((i + 1) % Diagrama[p].getNVertices());
 
-        Ponto prodV;
-        ProdVetorial(vetorA, vetorB, prodV);
+            Ponto vetorA = Ponto(v2.x-v1.x, v2.y-v1.y, 0);
+            Ponto vetorB = Ponto(pontoAtual.x-v1.x, pontoAtual.y-v1.y, 0);
 
-        printf("\n");
-        prodV.imprime();
+            Ponto prodV;
+            ProdVetorial(vetorA, vetorB, prodV);
 
-        if (prodV.z < 0)
-            qtdNegativos++;
+            printf("\n");
+            prodV.imprime();
+
+            // quando der positivo, é a aresta que ele passou
+            if (prodV.z < 0)
+                qtdNegativos++;
+        }
+        if (qtdNegativos == Diagrama[p].getNVertices() || qtdNegativos == 0)
+        {
+            return p;
+        }
     }
 
-    if (qtdNegativos == Diagrama[7].getNVertices() || qtdNegativos == 0)
-    {
-        return true;
-    }
-
-    return false;
+    return 0;
 }
 
 
-Poligono Voronoi::getPoligonoAtualInclConcavos(Ponto p1, Ponto pontoAtual)
+int Voronoi::getPoligonoAtualVizinhos(Ponto pontoAtual, Poligono poligonoAtual)
+{
+
+}
+
+
+int Voronoi::getPoligonoAtualInclConcavos(Ponto p1, Ponto pontoAtual)
 {
     //int cruzam[20];
     int contador=0;
@@ -137,6 +149,9 @@ Poligono Voronoi::getPoligonoAtualInclConcavos(Ponto p1, Ponto pontoAtual)
                 Ponto v1;
                 Ponto v2;
                 Diagrama[i].getAresta(a, v1, v2);
+
+
+
                 if (HaInterseccao(p1, pontoAtual, v1, v2))
                 {
                     printf("\nachou\n");
@@ -147,7 +162,9 @@ Poligono Voronoi::getPoligonoAtualInclConcavos(Ponto p1, Ponto pontoAtual)
             if (contaInterseccao%2 != 0) // encontrou o poligono
             {
                 Diagrama[i].imprime();
-                return Diagrama[i];
+                //return Diagrama[i];
+                printf("Cont: %d\n",getContadorInt());
+                return i;
             }
         }
     }
