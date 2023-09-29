@@ -77,16 +77,20 @@ Poligono Voronoi::getPoligono(int i)
     }
     return Diagrama[i];
 }
-unsigned int Voronoi::getNPoligonos()
+Envelope Voronoi::getEnvelope(int e)
 {
-    return qtdDePoligonos;
+    return envelopes[e];
 }
+
 void Voronoi::obtemLimites(Ponto &min, Ponto &max)
 {
     min = this->Min;
     max = this->Max;
 }
-
+unsigned int Voronoi::getNPoligonos()
+{
+    return qtdDePoligonos;
+}
 
 int Voronoi::getPoligonoAtualInclConvexos(Ponto pontoAtual)
 {
@@ -169,3 +173,5 @@ int Voronoi::getPoligonoAtualInclConcavos(Ponto p1, Ponto pontoAtual)
         }
     }
 }
+
+

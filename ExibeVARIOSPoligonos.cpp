@@ -38,6 +38,7 @@ using namespace std;
 #include "Ponto.h"
 #include "Poligono.h"
 #include "DiagramaVoronoi.h"
+#include "Envelope.h"
 
 #include "ListaDeCoresRGB.h"
 
@@ -89,6 +90,21 @@ void ImprimeNumeracaoDosVertices(Poligono &P)
         sprintf(msg,"%d",i);
         printString(msg,aux.x, aux.y);
     }
+}
+// *********************************************************************
+void ImprimeNroDoPoligono(Poligono P,int n)
+{
+    char msg[10];
+    sprintf(msg,"%d",n);
+    Ponto Soma, A;
+    for (int i=0;i<P.getNVertices();i++)
+    {
+        A = P.getVertice(i);
+        Soma = Soma + A;
+    }
+    double div = 1.0/P.getNVertices();
+    Soma = Soma * div;
+    printString(msg,Soma.x, Soma.y);
 }
 // **********************************************************************
 //
@@ -296,12 +312,13 @@ void display( void )
     glLineWidth(2);
 
     Poligono P;
+    Envelope E;
     for (int i=0; i<Voro.getNPoligonos(); i++)
     {
         defineCor(CoresDosPoligonos[i]);
         P = Voro.getPoligono(i);
         P.pintaPoligono();
-
+        ImprimeNroDoPoligono(P, i);
         Ponto A, B;
         P.getAresta(i,A,B);
     }
@@ -310,6 +327,11 @@ void display( void )
     {
         P = Voro.getPoligono(i);
         P.desenhaPoligono();
+    }
+    for (int e=0; e<Voro.getNPoligonos(); e++)
+    {
+        E = Voro.getEnvelope(e);
+        E.Desenha();
     }
 
     if (desenha)

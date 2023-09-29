@@ -165,13 +165,18 @@
 1692904432 source:c:\users\10033421\desktop\voronoi\temporizador.cpp
 	"Temporizador.h"
 
-1692910098 source:c:\users\carol\onedrive\compt.grafica\voronoi\diagramavoronoi.cpp
+1696002537 source:c:\users\carol\onedrive\compt.grafica\voronoi\diagramavoronoi.cpp
 	"DiagramaVoronoi.h"
+	"Envelope.h"
+	"Poligono.h"
+	"Ponto.h"
 
-1692910098 c:\users\carol\onedrive\compt.grafica\voronoi\diagramavoronoi.h
+1696012199 c:\users\carol\onedrive\compt.grafica\voronoi\diagramavoronoi.h
 	<iostream>
 	<fstream>
 	"Poligono.h"
+	"Envelope.h"
+	"Ponto.h"
 
 1692910099 c:\users\carol\onedrive\compt.grafica\voronoi\poligono.h
 	<iostream>
@@ -234,7 +239,7 @@
 	<GLUT/glut.h>
 	<glut.h>
 
-1692910099 source:c:\users\carol\onedrive\compt.grafica\voronoi\poligono.cpp
+1696002537 source:c:\users\carol\onedrive\compt.grafica\voronoi\poligono.cpp
 	<iostream>
 	<fstream>
 	"Poligono.h"
@@ -245,7 +250,7 @@
 1692910099 source:c:\users\carol\onedrive\compt.grafica\voronoi\temporizador.cpp
 	"Temporizador.h"
 
-1694183103 source:c:\users\carol\onedrive\compt.grafica\voronoi\exibevariospoligonos.cpp
+1696012222 source:c:\users\carol\onedrive\compt.grafica\voronoi\exibevariospoligonos.cpp
 	<iostream>
 	<cmath>
 	<ctime>
@@ -259,6 +264,7 @@
 	"Ponto.h"
 	"Poligono.h"
 	"DiagramaVoronoi.h"
+	"Envelope.h"
 	"ListaDeCoresRGB.h"
 	"Temporizador.h"
 
@@ -359,5 +365,17 @@
 	<glut.h>
 	<GLUT/glut.h>
 	<glut.h>
+	"Ponto.h"
+
+1696002537 c:\users\carol\onedrive\compt.grafica\voronoi\envelope.h
+	<iostream>
+	<windows.h>
+	<glut.h>
+	<GLUT/glut.h>
+	<glut.h>
+	"Ponto.h"
+
+1696002537 source:c:\users\carol\onedrive\compt.grafica\voronoi\envelope.cpp
+	"Envelope.h"
 	"Ponto.h"
 

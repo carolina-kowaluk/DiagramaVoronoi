@@ -28,6 +28,7 @@ public:
     Poligono LeUmPoligono();
     void LePoligonos(const char *nome);
     Poligono getPoligono(int i);
+    Envelope getEnvelope(int e);
     void obtemLimites(Ponto &min, Ponto &max);
     unsigned int getNPoligonos();
     int getPoligonoAtualInclConcavos(Ponto p1, Ponto pontoAtual);
