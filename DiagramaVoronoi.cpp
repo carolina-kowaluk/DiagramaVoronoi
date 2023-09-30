@@ -112,7 +112,7 @@ int Voronoi::getPoligonoAtualInclConvexos(Ponto pontoAtual)
             ProdVetorial(vetorA, vetorB, prodV);
 
             //printf("\n");
-            prodV.imprime();
+            //prodV.imprime();
 
             // quando der positivo, é a aresta que ele passou
             if (prodV.z < 0)
@@ -204,7 +204,7 @@ int Voronoi::getPoligonoAtualInclConcavos(Ponto p1, Ponto pontoAtual)
 
     //printf("Envelopes: \n");
 
-    for (int i=0; i<19; i++)
+    for (int i=0; i<getNPoligonos(); i++)
     {
         if (envelopes[i].temColisao(envelopes[i], pontoAtual))
         {
@@ -227,7 +227,7 @@ int Voronoi::getPoligonoAtualInclConcavos(Ponto p1, Ponto pontoAtual)
 
             if (contaInterseccao%2 != 0) // encontrou o poligono
             {
-                Diagrama[i].imprime();
+                //Diagrama[i].imprime();
                 //return Diagrama[i];
                 //printf("Cont: %d\n",getContadorInt());
                 return i;

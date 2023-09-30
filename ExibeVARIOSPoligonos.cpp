@@ -171,10 +171,10 @@ void rodaAlgoritmos()
 {
     if (pontoSaiu())
     {
-        printf("Concavo: %d\n", Voro.getPoligonoAtualInclConcavos(Ponto(-5000,p.y,0), p));
-        printf("Convexo: %d\n", Voro.getPoligonoAtualInclConvexos(p));
+        printf("\nConcavo: %d\n", Voro.getPoligonoAtualInclConcavos(Ponto(-5000,p.y,0), p));
+        printf("\nConvexo: %d\n", Voro.getPoligonoAtualInclConvexos(p));
         poligonoAtualIndice = Voro.getPoligonoAtualPorVizinhos(p, poligonoAtualIndice);
-        printf("Vizinhos: %d\n", poligonoAtualIndice);
+        printf("\nVizinhos: %d\n", poligonoAtualIndice);
         poligonoAtual = Voro.getPoligono(poligonoAtualIndice);
     }
 }
@@ -315,7 +315,7 @@ void InterseptaArestas(Poligono P, int indice)
 }
 void poligonoInicial()
 {
-    for (int i=0; i < 19;i++)
+    for (int i=0; i < Voro.getNPoligonos();i++)
     {
         InterseptaArestas(Voro.getPoligono(i), i);
     }
