@@ -61,6 +61,7 @@ bool FoiClicado = false;
 float angulo=0.0;
 
 Poligono poligonoAtual;
+int poligonoAtualIndice;
 void poligonoInicial();
 
 // **********************************************************************
@@ -152,13 +153,17 @@ void init()
     Min = Min - Largura * 0.1;
     Max = Max + Largura * 0.1;
 
+    Voro.criaVizinhos();
+    Voro.getPoligonoAtualVizinhos(p, poligonoAtual);
+
     poligonoInicial();
-    printf("\n poligono inicial \n");
+    printf("\n poligono inicial: %d \n", poligonoAtualIndice);
 
     poligonoAtual.imprime();
     //printf("\n%d",Voro.getPoligonoAtualInclConvexos(p));
     //poligonoAtual = Voro.getPoligonoAtualInclConcavos(Ponto(-3.3,p.y,0), p);
-    printf("Concavo: %d\n", Voro.getPoligonoAtualInclConcavos(Ponto(-3.3,p.y,0), p));
+    //printf("Concavo: %d\n", Voro.getPoligonoAtualInclConcavos(Ponto(-3.3,p.y,0), p));
+    //printf("%d",Voro.getPoligonoAtualPorVizinhos(p, 7));
 }
 
 double nFrames=0;
@@ -167,6 +172,7 @@ double TempoTotal=0;
 
 void rodaAlgoritmos()
 {
+    printf("%d",Voro.getPoligonoAtualPorVizinhos(p, 7));
     printf("Concavo: %d\n", Voro.getPoligonoAtualInclConcavos(Ponto(-3.3,p.y,0), p));
     printf("Convexo: %d\n", Voro.getPoligonoAtualInclConvexos(p));
 }
@@ -254,7 +260,7 @@ void DesenhaPonto()
 //***********************************************************************
 
 
-void InterseptaArestas(Poligono P)
+void InterseptaArestas(Poligono P, int indice)
 {
     // se tiver numero impar de arestas cruzadas, está dentro do poligono
     int cruzas = 0;
@@ -274,6 +280,7 @@ void InterseptaArestas(Poligono P)
     if (cruzas%2!=0)
     {
         poligonoAtual = P;
+        poligonoAtualIndice = indice;
     }
 
     resetContadorInt();
@@ -282,7 +289,7 @@ void poligonoInicial()
 {
     for (int i=0; i < 19;i++)
     {
-        InterseptaArestas(Voro.getPoligono(i));
+        InterseptaArestas(Voro.getPoligono(i), i);
     }
 }
 

@@ -33,9 +33,11 @@ class Poligono
 {
     vector <Ponto> Vertices;
     Ponto Min, Max;
+    int nVizinhos;
 public:
     Poligono();
     Ponto getVertice(int);
+    int vizinhos[100];
     unsigned long getNVertices();
     void insereVertice(Ponto);
     void insereVertice(Ponto p, int pos);
@@ -48,7 +50,8 @@ public:
     void LePoligono(const char *nome);
     void desenhaAresta(int n);
     void getAresta(int i, Ponto &P1, Ponto &P2);
-
+    void insereVizinho(int v);
+    int getNVizinhos();
 };
 
-#endif 
+#endif

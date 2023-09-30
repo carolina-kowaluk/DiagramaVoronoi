@@ -29,6 +29,7 @@ public:
     void rotacionaX(float angulo);
     void rotacionaY(float angulo);
     void rotacionaZ(float angulo);
+    void setP(int newP);
 } ;
 
 

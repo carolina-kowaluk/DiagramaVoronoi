@@ -127,29 +127,75 @@ int Voronoi::getPoligonoAtualInclConvexos(Ponto pontoAtual)
     return 0;
 }
 
+int Voronoi::getPoligonoAtualPorVizinhos(Ponto pontoAtual, int poligonoAtual)
+{
+    for (int i=0; i < Diagrama[poligonoAtual].getNVertices(); i++)
+    {
+        Ponto v1 = Diagrama[poligonoAtual].getVertice(i);
+        Ponto v2 = Diagrama[poligonoAtual].getVertice((i + 1) % Diagrama[poligonoAtual].getNVertices());
+
+        Ponto vetorA = Ponto(v2.x-v1.x, v2.y-v1.y, 0);
+        Ponto vetorB = Ponto(pontoAtual.x-v1.x, pontoAtual.y-v1.y, 0);
+
+        Ponto prodV;
+        ProdVetorial(vetorA, vetorB, prodV);
+
+        //printf("\n");
+        //prodV.imprime();
+
+            // quando der positivo, é a aresta que ele passou
+        if (prodV.z > 0)
+            return Diagrama[poligonoAtual].vizinhos[i];
+    }
+}
+
 
 int Voronoi::getPoligonoAtualVizinhos(Ponto pontoAtual, Poligono poligonoAtual)
 {
-
+    printf("\n");
+    for (int v=0; v<Diagrama[7].getNVizinhos(); v++)
+    {
+        printf("%d ",Diagrama[7].vizinhos[v]);
+    }
+    return 0;
 }
 
 void Voronoi::criaVizinhos()
 {
     for (int pAtual=0; pAtual < getNPoligonos(); pAtual++)
     {
+        printf("\nP atual: %d\n", pAtual);
         for (int vAtual=0; vAtual < Diagrama[pAtual].getNVertices(); vAtual++)
         {
-            for (int p=0; p<getNPoligonos(); p++)
+            for (int pol=0; pol<getNPoligonos(); pol++)
             {
-                for (int v=0; v<Diagrama[p].getNVertices(); v++)
+                if (pol != pAtual)
                 {
+                    for (int v=0; v<Diagrama[pol].getNVertices(); v++)
+                    {
+                        Ponto verticeA = Diagrama[pAtual].getVertice(vAtual);
+                        Ponto verticeB = Diagrama[pol].getVertice(v);
 
+                        if (verticeA == verticeB) // se tiver o mesmo vertice
+                        {
+                            //printf("acha vertice: %d ", pol);
+                            Ponto proxV = Diagrama[pAtual].getVertice((vAtual+1) % Diagrama[pAtual].getNVertices());
+
+                            if (proxV == Diagrama[pol].getVertice((v+1) % Diagrama[pol].getNVertices()) ||
+                                proxV == Diagrama[pol].getVertice((v-1+Diagrama[pol].getNVertices()) % Diagrama[pol].getNVertices()))     // se for o poligono certo
+                            {
+                                //printf("%d, ", pol);
+                                Diagrama[pAtual].insereVizinho(pol);
+                            }
+
+                        }
+
+                    }
                 }
             }
         }
     }
 }
-
 
 int Voronoi::getPoligonoAtualInclConcavos(Ponto p1, Ponto pontoAtual)
 {

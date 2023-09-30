@@ -34,6 +34,8 @@ public:
     int getPoligonoAtualInclConcavos(Ponto p1, Ponto pontoAtual);
     int getPoligonoAtualInclConvexos(Ponto pontoAtual);
     int getPoligonoAtualVizinhos(Ponto pontoAtual, Poligono poligonoAtual);
+    int getPoligonoAtualPorVizinhos(Ponto pontoAtual, int poligonoAtual);
+    void criaVizinhos();
 };
 
 #endif /* DiagramaVoronoi_h */

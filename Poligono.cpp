@@ -13,7 +13,7 @@ using namespace std;
 
 Poligono::Poligono()
 {
-
+    nVizinhos=0;
 }
 
 void Poligono::insereVertice(Ponto p)
@@ -128,3 +128,13 @@ void Poligono::desenhaAresta(int n)
     glEnd();
 }
 
+void Poligono::insereVizinho(int v)
+{
+    vizinhos[nVizinhos] = v;
+    nVizinhos++;
+}
+
+int Poligono::getNVizinhos()
+{
+    return nVizinhos;
+}
