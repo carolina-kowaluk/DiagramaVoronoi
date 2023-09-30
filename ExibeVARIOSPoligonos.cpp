@@ -63,6 +63,7 @@ float angulo=0.0;
 Poligono poligonoAtual;
 int poligonoAtualIndice;
 void poligonoInicial();
+bool pontoSaiu();
 
 // **********************************************************************
 //
@@ -160,10 +161,6 @@ void init()
     printf("\n poligono inicial: %d \n", poligonoAtualIndice);
 
     poligonoAtual.imprime();
-    //printf("\n%d",Voro.getPoligonoAtualInclConvexos(p));
-    //poligonoAtual = Voro.getPoligonoAtualInclConcavos(Ponto(-3.3,p.y,0), p);
-    //printf("Concavo: %d\n", Voro.getPoligonoAtualInclConcavos(Ponto(-3.3,p.y,0), p));
-    //printf("%d",Voro.getPoligonoAtualPorVizinhos(p, 7));
 }
 
 double nFrames=0;
@@ -172,9 +169,14 @@ double TempoTotal=0;
 
 void rodaAlgoritmos()
 {
-    printf("%d",Voro.getPoligonoAtualPorVizinhos(p, 7));
-    printf("Concavo: %d\n", Voro.getPoligonoAtualInclConcavos(Ponto(-3.3,p.y,0), p));
-    printf("Convexo: %d\n", Voro.getPoligonoAtualInclConvexos(p));
+    if (pontoSaiu())
+    {
+        printf("Concavo: %d\n", Voro.getPoligonoAtualInclConcavos(Ponto(-5000,p.y,0), p));
+        printf("Convexo: %d\n", Voro.getPoligonoAtualInclConvexos(p));
+        poligonoAtualIndice = Voro.getPoligonoAtualPorVizinhos(p, poligonoAtualIndice);
+        printf("Vizinhos: %d\n", poligonoAtualIndice);
+        poligonoAtual = Voro.getPoligono(poligonoAtualIndice);
+    }
 }
 
 // **********************************************************************
@@ -259,6 +261,32 @@ void DesenhaPonto()
 }
 //***********************************************************************
 
+bool pontoSaiu()
+{
+    // se tiver numero impar de arestas cruzadas, está dentro do poligono
+    int cruzas = 0;
+    Ponto P1, P2;
+    Ponto Esq;
+    Ponto Dir (-1,0);
+    Esq = p + Dir * (1000);
+    for (int i=0; i < poligonoAtual.getNVertices();i++)
+    {
+        poligonoAtual.getAresta(i, P1, P2);
+        //if(PassaPelaFaixa(i,F))
+        if (HaInterseccao(p,Esq, P1, P2))
+            cruzas++;
+    }
+
+
+    if (cruzas%2!=0)
+    {
+        return false;
+    }
+
+    //resetContadorInt();
+
+    return true;
+}
 
 void InterseptaArestas(Poligono P, int indice)
 {
@@ -401,15 +429,19 @@ void keyboard ( unsigned char key, int x, int y )
 	{
 	    case 'w':
             p.y += 0.1f;
+            rodaAlgoritmos();
             break;
         case 's':
             p.y -= 0.1f;
+            rodaAlgoritmos();
             break;
         case 'a':
             p.x -= 0.1f;
+            rodaAlgoritmos();
             break;
         case 'd':
             p.x += 0.1f;
+            rodaAlgoritmos();
             break;
 		case 27:        // Termina o programa qdo
 			exit ( 0 );   // a tecla ESC for pressionada

@@ -111,7 +111,7 @@ int Voronoi::getPoligonoAtualInclConvexos(Ponto pontoAtual)
             Ponto prodV;
             ProdVetorial(vetorA, vetorB, prodV);
 
-            printf("\n");
+            //printf("\n");
             prodV.imprime();
 
             // quando der positivo, é a aresta que ele passou
@@ -152,10 +152,10 @@ int Voronoi::getPoligonoAtualPorVizinhos(Ponto pontoAtual, int poligonoAtual)
 
 int Voronoi::getPoligonoAtualVizinhos(Ponto pontoAtual, Poligono poligonoAtual)
 {
-    printf("\n");
+    //printf("\n");
     for (int v=0; v<Diagrama[7].getNVizinhos(); v++)
     {
-        printf("%d ",Diagrama[7].vizinhos[v]);
+        //printf("%d ",Diagrama[7].vizinhos[v]);
     }
     return 0;
 }
@@ -164,7 +164,7 @@ void Voronoi::criaVizinhos()
 {
     for (int pAtual=0; pAtual < getNPoligonos(); pAtual++)
     {
-        printf("\nP atual: %d\n", pAtual);
+        //printf("\nP atual: %d\n", pAtual);
         for (int vAtual=0; vAtual < Diagrama[pAtual].getNVertices(); vAtual++)
         {
             for (int pol=0; pol<getNPoligonos(); pol++)
@@ -202,13 +202,13 @@ int Voronoi::getPoligonoAtualInclConcavos(Ponto p1, Ponto pontoAtual)
     //int cruzam[20];
     int contador=0;
 
-    printf("Envelopes: \n");
+    //printf("Envelopes: \n");
 
     for (int i=0; i<19; i++)
     {
         if (envelopes[i].temColisao(envelopes[i], pontoAtual))
         {
-            printf("\n p %d \n", i);
+            //printf("\n p %d \n", i);
             int contaInterseccao = 0;
             for (int a=0; a < Diagrama[i].getNVertices(); a++) // percorre arestas
             {
@@ -220,7 +220,7 @@ int Voronoi::getPoligonoAtualInclConcavos(Ponto p1, Ponto pontoAtual)
 
                 if (HaInterseccao(p1, pontoAtual, v1, v2))
                 {
-                    printf("\nachou\n");
+                    //printf("\nachou\n");
                     contaInterseccao++;
                 }
             }
@@ -229,7 +229,7 @@ int Voronoi::getPoligonoAtualInclConcavos(Ponto p1, Ponto pontoAtual)
             {
                 Diagrama[i].imprime();
                 //return Diagrama[i];
-                printf("Cont: %d\n",getContadorInt());
+                //printf("Cont: %d\n",getContadorInt());
                 return i;
             }
         }
