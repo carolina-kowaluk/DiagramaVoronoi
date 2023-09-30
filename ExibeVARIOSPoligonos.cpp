@@ -171,10 +171,16 @@ void rodaAlgoritmos()
 {
     if (pontoSaiu())
     {
+        resetContadorInt();
         printf("\nConcavo: %d\n", Voro.getPoligonoAtualInclConcavos(Ponto(-5000,p.y,0), p));
+        printf("Cont HaInterseccao: %d\n", getContadorInt());
+        resetContadorProdVetorial();
         printf("\nConvexo: %d\n", Voro.getPoligonoAtualInclConvexos(p));
+        printf("Cont ProdVetorial: %d\n", getContadorProdVetorial());
+        resetContadorProdVetorial();
         poligonoAtualIndice = Voro.getPoligonoAtualPorVizinhos(p, poligonoAtualIndice);
         printf("\nVizinhos: %d\n", poligonoAtualIndice);
+        printf("Cont ProdVetorial: %d", getContadorProdVetorial());
         poligonoAtual = Voro.getPoligono(poligonoAtualIndice);
     }
 }

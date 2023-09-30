@@ -95,7 +95,7 @@ unsigned int Voronoi::getNPoligonos()
 int Voronoi::getPoligonoAtualInclConvexos(Ponto pontoAtual)
 {
     // TODO: retornar poligono e colocar FOR externo percorrendo poligonos
-
+    //resetContadorProdVetorial();
     for (int p=0; p < qtdDePoligonos; p++)
     {
         int qtdNegativos =0;
@@ -120,6 +120,7 @@ int Voronoi::getPoligonoAtualInclConvexos(Ponto pontoAtual)
         }
         if (qtdNegativos == Diagrama[p].getNVertices() || qtdNegativos == 0)
         {
+            //printf("\nCont ProdVetorial: %d", getContadorProdVetorial());
             return p;
         }
     }
@@ -129,6 +130,7 @@ int Voronoi::getPoligonoAtualInclConvexos(Ponto pontoAtual)
 
 int Voronoi::getPoligonoAtualPorVizinhos(Ponto pontoAtual, int poligonoAtual)
 {
+
     for (int i=0; i < Diagrama[poligonoAtual].getNVertices(); i++)
     {
         Ponto v1 = Diagrama[poligonoAtual].getVertice(i);
@@ -145,6 +147,7 @@ int Voronoi::getPoligonoAtualPorVizinhos(Ponto pontoAtual, int poligonoAtual)
 
             // quando der positivo, é a aresta que ele passou
         if (prodV.z > 0)
+            //printf("\nCont ProdVetorial: %d", getContadorProdVetorial());
             return Diagrama[poligonoAtual].vizinhos[i];
     }
 }
@@ -201,7 +204,7 @@ int Voronoi::getPoligonoAtualInclConcavos(Ponto p1, Ponto pontoAtual)
 {
     //int cruzam[20];
     int contador=0;
-    resetContadorInt();
+    //resetContadorInt();
     //printf("Envelopes: \n");
 
     for (int i=0; i<getNPoligonos(); i++)
@@ -229,7 +232,7 @@ int Voronoi::getPoligonoAtualInclConcavos(Ponto p1, Ponto pontoAtual)
                 //Diagrama[i].imprime();
                 //return Diagrama[i];
                 //printf("Cont: %d\n",getContadorInt());
-                printf("\nCont HaInterseccao: %d", getContadorInt());
+                //printf("\nCont HaInterseccao: %d", getContadorInt());
                 return i;
             }
         }
