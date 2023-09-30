@@ -201,7 +201,7 @@ int Voronoi::getPoligonoAtualInclConcavos(Ponto p1, Ponto pontoAtual)
 {
     //int cruzam[20];
     int contador=0;
-
+    resetContadorInt();
     //printf("Envelopes: \n");
 
     for (int i=0; i<getNPoligonos(); i++)
@@ -217,7 +217,6 @@ int Voronoi::getPoligonoAtualInclConcavos(Ponto p1, Ponto pontoAtual)
                 Diagrama[i].getAresta(a, v1, v2);
 
 
-
                 if (HaInterseccao(p1, pontoAtual, v1, v2))
                 {
                     //printf("\nachou\n");
@@ -230,10 +229,12 @@ int Voronoi::getPoligonoAtualInclConcavos(Ponto p1, Ponto pontoAtual)
                 //Diagrama[i].imprime();
                 //return Diagrama[i];
                 //printf("Cont: %d\n",getContadorInt());
+                printf("\nCont HaInterseccao: %d", getContadorInt());
                 return i;
             }
         }
     }
+
 }
 
 

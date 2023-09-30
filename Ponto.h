@@ -49,6 +49,8 @@ int intersec2d(Ponto k, Ponto l, Ponto m, Ponto n, double &s, double &t);
 bool HaInterseccao(Ponto k, Ponto l, Ponto m, Ponto n);
 
 long int getContadorInt();
+long int getContadorProdVetorial();
 void resetContadorInt();
+void resetContadorProdVetorial();
 
 #endif /* Ponto_hpp */

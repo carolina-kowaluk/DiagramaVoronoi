@@ -136,7 +136,7 @@ void init()
     // Define a cor do fundo da tela (AZUL)
     glClearColor(0.0f, 0.0f, 1.0f, 1.0f);
 
-    Voro.LePoligonos("ListaDePoligonos-V2.txt");
+    Voro.LePoligonos("teste50poligonos.txt");
     Voro.obtemLimites(Min,Max);
     Min.imprime("Minimo:", "\n");
     Max.imprime("Maximo:", "\n");
@@ -363,11 +363,11 @@ void display( void )
         P = Voro.getPoligono(i);
         P.desenhaPoligono();
     }
-    for (int e=0; e<Voro.getNPoligonos(); e++)
-    {
-        E = Voro.getEnvelope(e);
-        E.Desenha();
-    }
+    //for (int e=0; e<Voro.getNPoligonos(); e++)
+    //{
+    //    E = Voro.getEnvelope(e);
+    //    E.Desenha();
+    //}
 
     if (desenha)
     {

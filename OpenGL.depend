@@ -165,7 +165,7 @@
 1692904432 source:c:\users\10033421\desktop\voronoi\temporizador.cpp
 	"Temporizador.h"
 
-1696103887 source:c:\users\carol\onedrive\compt.grafica\voronoi\diagramavoronoi.cpp
+1696106646 source:c:\users\carol\onedrive\compt.grafica\voronoi\diagramavoronoi.cpp
 	"DiagramaVoronoi.h"
 	"Envelope.h"
 	"Poligono.h"
@@ -201,7 +201,7 @@
 
 1692910099 c:\users\carol\onedrive\compt.grafica\voronoi\gl\freeglut_ext.h
 
-1696103201 c:\users\carol\onedrive\compt.grafica\voronoi\ponto.h
+1696106810 c:\users\carol\onedrive\compt.grafica\voronoi\ponto.h
 	<iostream>
 	<cmath>
 
@@ -244,13 +244,13 @@
 	<fstream>
 	"Poligono.h"
 
-1696103201 source:c:\users\carol\onedrive\compt.grafica\voronoi\ponto.cpp
+1696106835 source:c:\users\carol\onedrive\compt.grafica\voronoi\ponto.cpp
 	"Ponto.h"
 
 1692910099 source:c:\users\carol\onedrive\compt.grafica\voronoi\temporizador.cpp
 	"Temporizador.h"
 
-1696105043 source:c:\users\carol\onedrive\compt.grafica\voronoi\exibevariospoligonos.cpp
+1696107134 source:c:\users\carol\onedrive\compt.grafica\voronoi\exibevariospoligonos.cpp
 	<iostream>
 	<cmath>
 	<ctime>
