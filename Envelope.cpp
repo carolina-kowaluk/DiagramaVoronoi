@@ -84,7 +84,8 @@ void Envelope::Desenha()
 
 bool Envelope::temColisao(Envelope e, Ponto p1)
 {
-    if (p1.y <= e.Max.y && p1.y >= e.Min.y)
+    p1.imprime();
+    if (p1.y <= e.Max.y && p1.y >= e.Min.y && p1.x <= e.Max.x && p1.x >= e.Min.x)
     {
         return true;
     }

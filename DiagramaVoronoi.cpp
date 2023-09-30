@@ -133,6 +133,23 @@ int Voronoi::getPoligonoAtualVizinhos(Ponto pontoAtual, Poligono poligonoAtual)
 
 }
 
+void Voronoi::criaVizinhos()
+{
+    for (int pAtual=0; pAtual < getNPoligonos(); pAtual++)
+    {
+        for (int vAtual=0; vAtual < Diagrama[pAtual].getNVertices(); vAtual++)
+        {
+            for (int p=0; p<getNPoligonos(); p++)
+            {
+                for (int v=0; v<Diagrama[p].getNVertices(); v++)
+                {
+
+                }
+            }
+        }
+    }
+}
+
 
 int Voronoi::getPoligonoAtualInclConcavos(Ponto p1, Ponto pontoAtual)
 {
@@ -143,10 +160,9 @@ int Voronoi::getPoligonoAtualInclConcavos(Ponto p1, Ponto pontoAtual)
 
     for (int i=0; i<19; i++)
     {
-        if (envelopes[i].temColisao(envelopes[i], p1))
+        if (envelopes[i].temColisao(envelopes[i], pontoAtual))
         {
-            //cruzam[contador] = i;
-            printf("%d \n", i);
+            printf("\n p %d \n", i);
             int contaInterseccao = 0;
             for (int a=0; a < Diagrama[i].getNVertices(); a++) // percorre arestas
             {

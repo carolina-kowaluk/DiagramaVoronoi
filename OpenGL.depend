@@ -268,13 +268,13 @@
 	"ListaDeCoresRGB.h"
 	"Temporizador.h"
 
-1695334051 source:c:\users\debyc\trabalhos\compgrafica\diagramavoronoi\diagramavoronoi.cpp
+1696084516 source:c:\users\debyc\trabalhos\compgrafica\diagramavoronoi\diagramavoronoi.cpp
 	"DiagramaVoronoi.h"
 	"Envelope.h"
 	"Poligono.h"
 	"Ponto.h"
 
-1695332385 c:\users\debyc\trabalhos\compgrafica\diagramavoronoi\diagramavoronoi.h
+1696080483 c:\users\debyc\trabalhos\compgrafica\diagramavoronoi\diagramavoronoi.h
 	<iostream>
 	<fstream>
 	"Poligono.h"
@@ -338,7 +338,7 @@
 	<windows.h>
 	<sys/time.h>
 
-1695334060 source:c:\users\debyc\trabalhos\compgrafica\diagramavoronoi\exibevariospoligonos.cpp
+1696084748 source:c:\users\debyc\trabalhos\compgrafica\diagramavoronoi\exibevariospoligonos.cpp
 	<iostream>
 	<cmath>
 	<ctime>
@@ -352,10 +352,11 @@
 	"Ponto.h"
 	"Poligono.h"
 	"DiagramaVoronoi.h"
+	"Envelope.h"
 	"ListaDeCoresRGB.h"
 	"Temporizador.h"
 
-1695236337 source:c:\users\debyc\trabalhos\compgrafica\diagramavoronoi\envelope.cpp
+1696084527 source:c:\users\debyc\trabalhos\compgrafica\diagramavoronoi\envelope.cpp
 	"Envelope.h"
 	"Ponto.h"
 

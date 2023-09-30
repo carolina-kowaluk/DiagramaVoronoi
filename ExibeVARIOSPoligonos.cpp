@@ -43,7 +43,7 @@ using namespace std;
 #include "ListaDeCoresRGB.h"
 
 #include "Temporizador.h"
-Ponto p(4.5,5);
+Ponto p(7.33,5.1);
 Temporizador T;
 double AccumDeltaT=0;
 
