@@ -268,7 +268,7 @@
 	"ListaDeCoresRGB.h"
 	"Temporizador.h"
 
-1696101134 source:c:\users\debyc\trabalhos\compgrafica\diagramavoronoi\diagramavoronoi.cpp
+1696107237 source:c:\users\debyc\trabalhos\compgrafica\diagramavoronoi\diagramavoronoi.cpp
 	"DiagramaVoronoi.h"
 	"Envelope.h"
 	"Poligono.h"
@@ -304,7 +304,7 @@
 
 1694207124 c:\users\debyc\trabalhos\compgrafica\diagramavoronoi\gl\freeglut_ext.h
 
-1696096192 c:\users\debyc\trabalhos\compgrafica\diagramavoronoi\ponto.h
+1696107238 c:\users\debyc\trabalhos\compgrafica\diagramavoronoi\ponto.h
 	<iostream>
 	<cmath>
 
@@ -327,7 +327,7 @@
 	<fstream>
 	"Poligono.h"
 
-1696096175 source:c:\users\debyc\trabalhos\compgrafica\diagramavoronoi\ponto.cpp
+1696107238 source:c:\users\debyc\trabalhos\compgrafica\diagramavoronoi\ponto.cpp
 	"Ponto.h"
 
 1694207124 source:c:\users\debyc\trabalhos\compgrafica\diagramavoronoi\temporizador.cpp
@@ -338,7 +338,7 @@
 	<windows.h>
 	<sys/time.h>
 
-1696102819 source:c:\users\debyc\trabalhos\compgrafica\diagramavoronoi\exibevariospoligonos.cpp
+1696107612 source:c:\users\debyc\trabalhos\compgrafica\diagramavoronoi\exibevariospoligonos.cpp
 	<iostream>
 	<cmath>
 	<ctime>
